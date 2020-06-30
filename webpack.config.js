@@ -9,11 +9,12 @@ rimraf("./dist/images/*",()=>{})
 
 module.exports = {
     mode : "development",
-    entry : "./src/app.js",
+    entry : "./src/app.ts",
     output : {
         path : path.resolve(__dirname,"dist"),
         filename : "bundle.js"
     },
+    devtool: "source-map",
     module: {
         rules: [
           {
@@ -26,7 +27,8 @@ module.exports = {
           {
             test: /\.css$/i,
             use: ['style-loader', 'css-loader'],
-          }
+          },
+            { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
         ]
       },
       plugins: (() =>{

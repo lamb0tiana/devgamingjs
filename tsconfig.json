@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "sourceMap": true,
+      "target": "es5",
+      "jsx": "react",
+      "allowSyntheticDefaultImports": true,
+      "noEmitOnError": true,
+      "allowJs": true,
+      "noImplicitAny": false,
+      "outDir": "./dist"
+    },
+    "compileOnSave": true,
+    "exclude": [
+      "node_modules"
+    ],
+    "include": ["./src/**/*"]
+  }
