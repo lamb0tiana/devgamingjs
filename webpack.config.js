@@ -31,14 +31,17 @@ module.exports = {
             { test: /\.tsx?$/, loader: "ts-loader" }
         ]
       },
-      plugins: (() =>{
-        const testFolder = './assets/images/';
-        let plugins = [new UglifyJsPlugin()];
-        fs.readdirSync(testFolder).length > 0 ? plugins.push( new CopyPlugin({
-            patterns: [
-              { from: 'assets/images', to : 'images' },
-            ],
-          })) : null;
-          return plugins;
-      })()
+    plugins: (() =>{
+      const testFolder = './assets/images/';
+      let plugins = [new UglifyJsPlugin()];
+      fs.readdirSync(testFolder).length > 0 ? plugins.push( new CopyPlugin({
+          patterns: [
+            { from: 'assets/images', to : 'images' },
+          ],
+        })) : null;
+        return plugins;
+    })(),
+    resolve:{
+      extensions: ['.ts','.js']
+    }
 }

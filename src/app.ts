@@ -1,21 +1,10 @@
-import * as PIXI from 'pixi.js';
-/* import appConfig from "../configs/configurations"
-console.log(appConfig) */
- require("../assets/css/app.css")
-let app = new PIXI.Application({ 
-    width: 256, 
-    height: 256,                       
-    antialias: true, 
-    transparent: false, 
-    resolution: 1
-  }
-);
-const appConfig = {
-  backgroundColor : 0x061639
-}
-//@ts-ignore
-app.renderer.autoResize = true;
-app.renderer.backgroundColor = appConfig.backgroundColor
+import {Application,Sprite} from "./common";
+
+import appConfig from "../configs/configurations"
+require("../assets/css/app.css")
+
+let app = new Application(appConfig);
+
 app.renderer.resize(window.innerWidth, window.innerHeight);
 document.body.appendChild(app.view);
 const images = ["runner.gif","cat.png"]
@@ -26,10 +15,13 @@ app.loader
   .load(setup);
 
 function setup() {
+  const tab = []
   images.forEach(imageFile =>{
-    const resource = new PIXI.Sprite(app.loader.resources[`/dist/images/${imageFile}`].texture);
+    const resource = new Sprite(app.loader.resources[`/dist/images/${imageFile}`].texture);
     app.stage.addChild(resource)
+    tab.push(resource)
   })
+
 }
  /*
 function setup() {
