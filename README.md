@@ -5,3 +5,5 @@
 - webpack > 4.43.
 # Installation:
 - Dependencies : run `yarn install`
+# Build
+- We run for now with developpment mode : launch `yarn run watch`
