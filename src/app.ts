@@ -18,13 +18,24 @@ app.renderer.autoResize = true;
 app.renderer.backgroundColor = appConfig.backgroundColor
 app.renderer.resize(window.innerWidth, window.innerHeight);
 document.body.appendChild(app.view);
-
+const images = ["runner.gif","cat.png"]
+images.forEach(imageFile =>{
+  app.loader.add(`/dist/images/${imageFile}`)
+})
 app.loader
-  .add("/dist/images/runner.gif")
   .load(setup);
 
 function setup() {
-  let cat = new PIXI.Sprite(app.loader.resources["/dist/images/runner.gif"].texture);
+  images.forEach(imageFile =>{
+    const resource = new PIXI.Sprite(app.loader.resources[`/dist/images/${imageFile}`].texture);
+    app.stage.addChild(resource)
+  })
+}
+ /*
+function setup() {
+  //@ts-ignore
+  const texture = PIXI.utils.TextureCache["/dist/images/runner.gif","/dist/images/runner.gif"];
+  let cat = new PIXI.Sprite(texture);
   app.stage.addChild(cat);
 }
- 
+ */
