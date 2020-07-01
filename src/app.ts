@@ -1,4 +1,5 @@
-import {Application,Sprite} from "./common";
+const scaleToWindow = require("../plugins/scaleToWindow")
+import {Application,Sprite,TextureCache} from "./common";
 
 import appConfig from "../configs/configurations"
 require("../assets/css/app.css")
@@ -7,27 +8,24 @@ let app = new Application(appConfig);
 
 app.renderer.resize(window.innerWidth, window.innerHeight);
 document.body.appendChild(app.view);
-const images = ["runner.gif","cat.png"]
-images.forEach(imageFile =>{
-  app.loader.add(`/dist/images/${imageFile}`)
-})
-app.loader
-  .load(setup);
+let images = ["runner.gif","cat.png"]
+images = images.map(i => `/dist/images/${i}`)
+app.loader.add(images).load(setup);
 
 function setup() {
   const tab = []
-  images.forEach(imageFile =>{
-    const resource = new Sprite(app.loader.resources[`/dist/images/${imageFile}`].texture);
-    app.stage.addChild(resource)
-    tab.push(resource)
-  })
+    const runnerTexture = app.loader.resources[images[0]].texture
+    const runner = new Sprite(runnerTexture);
 
+    app.stage.addChild(runner)
+
+
+    let catTexture = app.loader.resources[images[1]].texture
+    let cat = new Sprite(catTexture)
+
+    app.stage.addChild(cat)
+    setTimeout(() =>{
+      runner.x = 900
+    },2000)
 }
- /*
-function setup() {
-  //@ts-ignore
-  const texture = PIXI.utils.TextureCache["/dist/images/runner.gif","/dist/images/runner.gif"];
-  let cat = new PIXI.Sprite(texture);
-  app.stage.addChild(cat);
-}
- */
+

@@ -523,12 +523,16 @@ function a(){}function u(r,i,n,o){var s=0,a=r.length;!function t(e){e||s===a?n&&
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
   \***********************************/
-/*! no static exports found */function(t,e){t.exports=function(t){return t.webpackPolyfill||(t.deprecate=function(){},t.paths=[],t.children||(t.children=[]),Object.defineProperty(t,"loaded",{enumerable:!0,get:function(){return t.l}}),Object.defineProperty(t,"id",{enumerable:!0,get:function(){return t.i}}),t.webpackPolyfill=1),t}},"./src/app.ts":
+/*! no static exports found */function(t,e){t.exports=function(t){return t.webpackPolyfill||(t.deprecate=function(){},t.paths=[],t.children||(t.children=[]),Object.defineProperty(t,"loaded",{enumerable:!0,get:function(){return t.l}}),Object.defineProperty(t,"id",{enumerable:!0,get:function(){return t.i}}),t.webpackPolyfill=1),t}},"./plugins/scaleToWindow.js":
+/*!**********************************!*\
+  !*** ./plugins/scaleToWindow.js ***!
+  \**********************************/
+/*! no static exports found */function(t,e){},"./src/app.ts":
 /*!********************!*\
   !*** ./src/app.ts ***!
   \********************/
-/*! no static exports found */function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var i=r(/*! ./common */"./src/common.ts"),n=r(/*! ../configs/configurations */"./configs/configurations.ts");r(/*! ../assets/css/app.css */"./assets/css/app.css");var o=new i.Application(n.default);o.renderer.resize(window.innerWidth,window.innerHeight),document.body.appendChild(o.view);var s=["runner.gif","cat.png"];s.forEach(function(t){o.loader.add("/dist/images/"+t)}),o.loader.load(function(){var r=[];s.forEach(function(t){var e=new i.Sprite(o.loader.resources["/dist/images/"+t].texture);o.stage.addChild(e),r.push(e)})})},"./src/common.ts":
+/*! no static exports found */function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});r(/*! ../plugins/scaleToWindow */"./plugins/scaleToWindow.js");var n=r(/*! ./common */"./src/common.ts"),i=r(/*! ../configs/configurations */"./configs/configurations.ts");r(/*! ../assets/css/app.css */"./assets/css/app.css");var o=new n.Application(i.default);o.renderer.resize(window.innerWidth,window.innerHeight),document.body.appendChild(o.view);var s=["runner.gif","cat.png"];s=s.map(function(t){return"/dist/images/"+t}),o.loader.add(s).load(function(){var t=o.loader.resources[s[0]].texture,e=new n.Sprite(t);o.stage.addChild(e);var r=o.loader.resources[s[1]].texture,i=new n.Sprite(r);o.stage.addChild(i),setTimeout(function(){e.x=900},2e3)})},"./src/common.ts":
 /*!***********************!*\
   !*** ./src/common.ts ***!
   \***********************/
-/*! no static exports found */function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.Sprite=e.Application=void 0;var i=r(/*! pixi.js */"./node_modules/pixi.js/lib/pixi.es.js"),n=i.Application;e.Application=n;var o=i.Sprite;e.Sprite=o}});
+/*! no static exports found */function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.TextureCache=e.Sprite=e.Application=void 0;var i=r(/*! pixi.js */"./node_modules/pixi.js/lib/pixi.es.js"),n=i.Application;e.Application=n;var o=i.Sprite;e.Sprite=o;var s=i.utils.TextureCache;e.TextureCache=s}});

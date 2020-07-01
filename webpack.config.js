@@ -28,7 +28,7 @@ module.exports = {
             test: /\.css$/i,
             use: ['style-loader', 'css-loader'],
           },
-            { test: /\.tsx?$/, loader: "ts-loader" }
+          { test: /\.tsx?$/, loader: "ts-loader" }
         ]
       },
     plugins: (() =>{
