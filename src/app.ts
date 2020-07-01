@@ -13,19 +13,17 @@ images = images.map(i => `/dist/images/${i}`)
 app.loader.add(images).load(setup);
 
 function setup() {
-  const tab = []
-    const runnerTexture = app.loader.resources[images[0]].texture
-    const runner = new Sprite(runnerTexture);
+  const sprites = []
+  images.forEach(image => {
+    const texture = app.loader.resources[image].texture
+    const sprite = new Sprite(texture);
+    app.stage.addChild(sprite)
+    sprites.push(sprite)
+  })
 
-    app.stage.addChild(runner)
-
-
-    let catTexture = app.loader.resources[images[1]].texture
-    let cat = new Sprite(catTexture)
-
-    app.stage.addChild(cat)
-    setTimeout(() =>{
-      runner.x = 900
-    },2000)
+  setTimeout(() =>{
+    sprites[0].texture =  TextureCache[images[1]]
+    sprites[0].x = 600
+  },2000)
 }
 
